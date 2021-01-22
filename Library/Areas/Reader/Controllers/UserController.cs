@@ -25,6 +25,29 @@ namespace Library.Areas.Reader.Controllers
         {
             return View();
         }
+        public IActionResult Return()
+        {
+            string claimvalue = User.FindFirst("id").Value;
+            int value = Convert.ToInt32(claimvalue);
+            Issue issue = new Issue();
+            issue = _unitOfWork.Issue.GetFirstOrDefault(i => i.UserId == value && i.Status == "a");
+            return Json(new { data = issue });
+        }
+        public IActionResult Confirm(int? id)
+        {
+            Book book = new Book();
+            if (id == null)
+            {
+                return View(book);
+            }
+
+            book = _unitOfWork.Book.Get(id.GetValueOrDefault());
+            if (book == null)
+            {
+                return NotFound();
+            }
+            return View(book);
+        }
         public IActionResult Issue(int? id )
         {
             Book book = new Book();
@@ -65,6 +88,28 @@ namespace Library.Areas.Reader.Controllers
             }
             return View(issue);
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Confirm(int id)
+        {
+            Issue issue = new Issue();
+            Book book = new Book();
+            book = _unitOfWork.Book.Get(id);
+            book.AvailableStock = book.AvailableStock + 1;
+            if (ModelState.IsValid)
+            {
+                _unitOfWork.Issue.Remove(id);
+
+                _unitOfWork.Save();
+
+                _unitOfWork.Book.Update(book);
+
+                _unitOfWork.Save();
+
+                return RedirectToAction(nameof(Index));
+            }
+            return View(issue);
+        }
         #region API CALLS
 
         [HttpGet]
@@ -74,7 +119,8 @@ namespace Library.Areas.Reader.Controllers
             return Json(new { data = allObj });
         }
 
-
+        [HttpGet]
+        public IActionResult G
         #endregion
     }
 }
