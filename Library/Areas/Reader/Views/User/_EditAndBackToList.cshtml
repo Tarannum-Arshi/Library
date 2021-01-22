@@ -1,0 +1,11 @@
+﻿@model int
+
+@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+<div class="row">
+    <div class="col">
+        <button type="submit" class="btn btn-primary form-control" asp-route-id="@Model">Request</button>
+    </div>
+    <div class="col">
+        <a asp-action="Index" class="btn btn-success form-control"> Back</a>
+    </div>
+</div>
