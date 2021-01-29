@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 
 namespace Library.Models.ViewModels
-{
+{//
     public class Cover
     {
         [Key]
