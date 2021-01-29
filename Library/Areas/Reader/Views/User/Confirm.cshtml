@@ -9,7 +9,9 @@
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="col-12 border-bottom">
             <h2 class="text-primary">@title</h2>
-
+        </div>
+        <div class="col-4 text-right">
+            <a type="submit" class="btn btn-primary form-control" asp-area="Reader" asp-controller="User" asp-action="Logout">Logout</a>
             <p>@User.FindFirst("names").Value</p>
         </div>
         <div class="col-8 pt-4">
@@ -25,7 +27,7 @@
             <div class="form-group row">
                 <div class="col-8 offset-4">
                     <div class="col">
-                        <button type="submit" class="btn btn-primary form-control" asp-route-id="@Model.Bookid">Request</button>
+                        <button type="submit" class="btn btn-primary form-control" asp-route-id="@Model.Bookid">Return</button>
                     </div>
                     <div class="col">
                         <a asp-action="Index" class="btn btn-success form-control"> Back</a>
@@ -35,3 +37,8 @@
         </div>
     </div>
 </form>
+@section Scripts{
+
+    <script src="~/js/return.js"></script>
+
+}

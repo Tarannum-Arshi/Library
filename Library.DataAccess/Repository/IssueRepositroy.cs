@@ -23,8 +23,6 @@ namespace Library.DataAccess.Repository
             var objFromDb = _db.Issue.FirstOrDefault(s => s.IssueId == issue.IssueId);
             if (objFromDb != null)
             {
-                objFromDb.UserId = issue.UserId;
-                objFromDb.Bookid = issue.Bookid;
                 objFromDb.IssueDate = issue.IssueDate;
                 objFromDb.ReturnDate = issue.ReturnDate;
                 objFromDb.Status = issue.Status;

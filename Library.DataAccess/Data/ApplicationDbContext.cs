@@ -17,6 +17,8 @@ namespace Library.DataAccess.Data
 
         public DbSet<Book> Book { get; set; }
          public DbSet<Issue> Issue { get; set; }
+        public DbSet<Cover> Cover { get; set; }
+        public DbSet<Return> Return { get; set; }
     }
 }
 

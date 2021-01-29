@@ -6,30 +6,22 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
+
 namespace Library.Models.ViewModels
 {
-    public class Admin
+    public class Cover
     {
         [Key]
-        public int UserId { get; set; }
+        public int CoverId { get; set; }
 
         [Required]
         [MaxLength(40)]
         public string Name { get; set; }
 
         [Required]
-        public int Phone { get; set; }
-
+        [MaxLength(40)]
+        public string BookName { get; set; }
         [Required]
-        [MaxLength(60)]
-        public string Email { get; set; }
-
-        [Required]
-        [MaxLength(20)]
-        [DataType(DataType.Password)]
-        public string Password { get; set; }
-        
-        [MaxLength(4)]
-        public string Category { get; set; }
+        public int IssueId { get; set; }
     }
 }

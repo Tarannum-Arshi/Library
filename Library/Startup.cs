@@ -43,6 +43,7 @@ namespace Library
                     options.AccessDeniedPath = new PathString("/Reader/Home/Regiter");
                 });
             services.AddControllersWithViews();
+
         }
         
 

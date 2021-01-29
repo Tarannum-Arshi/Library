@@ -4,14 +4,16 @@ using Library.DataAccess.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Library.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210127054755_Cover")]
+    partial class Cover
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -137,26 +139,6 @@ namespace Library.DataAccess.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Issue");
-                });
-
-            modelBuilder.Entity("Library.Models.ViewModels.Return", b =>
-                {
-                    b.Property<int>("ReturnId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<string>("BookName")
-                        .IsRequired()
-                        .HasMaxLength(40)
-                        .HasColumnType("nvarchar(40)");
-
-                    b.Property<int>("IssueId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ReturnId");
-
-                    b.ToTable("Return");
                 });
 
             modelBuilder.Entity("Library.Models.ViewModels.Issue", b =>

@@ -1,11 +1,12 @@
-﻿@model Library.Models.ViewModels.Admin
+﻿@model Library.Models.ViewModels.Issue
+
 @addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <div class="col-4 text-right">
     <a type="submit" class="btn btn-primary form-control" asp-area="Admins" asp-controller="Home" asp-action="Logout">Logout</a>
     <p>@User.FindFirst("names").Value</p>
 </div>
-<p>Data Deleted</p>
+
+<p>Approved</p>

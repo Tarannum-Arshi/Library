@@ -7,20 +7,19 @@ $(document).ready(function () {
 function loadDataTable() {
     dataTable = $('#tblData').DataTable({
         "ajax": {
-            "url": "/Reader/User/GetAlls"
+            "url": "/Admins/Home/GetAlls"
 
         },
         "columns": [
+            { "data": "name" },
             { "data": "bookName" },
-
             {
-                "data": "bookid", "render": function (data) {
+                "data": "issueId", "render": function (data) {
                     return `
                             <div class="text-center">
-                                <a href="/Reader/User/Confirm/${data}" class="btn btn-success text-white" style="cursor:pointer">
-                                    Return
+                                <a href="/Admins/Home/ApproveRequest/${data}" class="btn btn-success text-white" style="cursor:pointer">
+                                    Approve
                                 </a>
-
                             </div>  
                             `;
                 },

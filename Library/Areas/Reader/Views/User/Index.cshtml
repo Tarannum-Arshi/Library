@@ -1,17 +1,18 @@
-﻿@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+﻿@model IEnumerable<Library.Models.ViewModels.Book>
+@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+
 <br />
 <div class="row">
-    <div class="col-4 offset-7">
-        <p>@User.FindFirst("names").Value</p>
+    <div class="col-6">
+        <h2 class="text-primary"> Welcome @User.FindFirst("names").Value </h2>
+    </div>
+    <div class="col-4 text-right">
+        <a type="submit" class="btn btn-primary form-control" asp-area="Reader" asp-controller="User" asp-action="Logout">Logout</a>
         <a class="btn btn-primary" asp-action="Return"><i class="fas fa-plus"></i> &nbsp; Return</a>
 
     </div>
@@ -23,15 +24,15 @@
             <tr class="table-info">
                 <th>BookName</th>
                 <th>Author</th>
-                <th>AvailableStock</th>
+                <th>Available Books</th>
                 <th></th>
             </tr>
         </thead>
     </table>
+    <a class="btn btn-primary" asp-action="Edit"><i class="fas fa-plus"></i> &nbsp; Edit profile</a>
 </div>
 
 @section Scripts{
 
     <script src="~/js/user.js"></script>
-
 }

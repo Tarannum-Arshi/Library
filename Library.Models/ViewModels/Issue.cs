@@ -21,7 +21,7 @@ namespace Library.Models.ViewModels
 
         public Book Book { get; set; }
 
-        public DateTime IssueDate { get; set; }
+       public DateTime IssueDate { get; set; }
 
          public DateTime ReturnDate { get; set; }
 
